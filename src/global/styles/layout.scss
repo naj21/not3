@@ -1,0 +1,9 @@
+.txt-left {
+    text-align: left;
+}
+
+.is-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}

@@ -1,0 +1,48 @@
+@import '../global/styles/theme.scss';
+
+.dark {
+    $dark-theme: true !global;
+  }
+
+.home {
+    display: grid;
+    grid-row-gap: 100px;
+}
+
+.home-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+}
+
+.hero {
+    align-self: center;
+    display: grid;
+    grid-row-gap: 80px;
+    & > .hero-text {
+        text-align: left;
+        & :first-child {
+            max-width: 500px;
+        }
+        & :nth-child(2) {
+            max-width: 350px;
+            font-size: 14px;
+        }
+    }
+
+    & .hero-button {
+        display: flex;
+        & > :first-child {
+            margin-right: 40px;
+        }   
+    }
+}
+
+.mode {
+    margin-left: 20px;
+    i {
+        font-size: 28px;
+        transform: rotateZ(230deg);
+        color: $n3-green;
+    }
+}

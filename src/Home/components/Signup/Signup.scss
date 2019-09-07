@@ -1,0 +1,23 @@
+.signup {
+    & > * {
+        justify-content: center;
+        & > p {
+            margin: 5px 0;
+            text-align: left;
+        }
+    }
+    & > :nth-child(2) {
+        margin: 50px 130px;
+        padding: 30px 60px;;
+    }
+
+    .profile-picture {
+        margin: 20px 0;
+    }
+}
+
+.form-svg {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 100px;
+}

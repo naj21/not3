@@ -1,0 +1,64 @@
+@import './global/styles/theme.scss';
+@import './global/styles/base.scss';
+@import './global/styles/layout.scss';
+
+
+body {
+  background: $background;
+}
+
+.App {
+  box-sizing: border-box;
+  color: $secondary-color;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.large-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: $primary-color;
+}
+
+
+.medium-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.profile-picture {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #C4C4C4;
+  // margin: 20px 0;
+  justify-content: center;
+}
+
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #E5E5E5;
+  display: grid;
+  place-items: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

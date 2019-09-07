@@ -1,0 +1,58 @@
+@import 'src/global/styles/theme.scss';
+
+.empty-office {
+    width: 80%;
+    height: 450px;
+}
+
+.office {
+    & > p {
+        margin-bottom: 50px;
+    }
+}
+
+.notes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,  240px);
+    grid-column-gap: 70px;
+    grid-row-gap: 40px;
+    justify-content: center;
+}
+
+.note-preview {
+    position: relative;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time {
+    // position: relative;
+    display: flex;
+    justify-content: space-between;
+    color: $n3-black;
+    // border-top: 1px solid black;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border: .5px solid #00000020;
+        top: 160px;
+        margin: 0 -15px;
+    }
+    p:first-of-type {
+        margin-bottom: 10px;
+    }
+    i {
+        right: 0;
+        bottom: -10px;
+        color: $accent-black;
+    }
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

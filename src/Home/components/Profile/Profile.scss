@@ -1,0 +1,64 @@
+@import 'src/global/styles/theme.scss';
+
+.profile-card {
+    display: flex;
+    // width: 90vw;
+    padding: 60px 40px;
+    & > form {
+        button {
+            position: relative;
+            width: inherit;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.form-inputs {
+    display: grid;
+    grid-column-gap: 180px;
+    grid-row-gap: 40px;
+    grid-template-columns: 1fr 1fr; 
+    p {
+        text-align: left !important;
+    }
+}
+
+.sub-links {
+    margin: 40px 0 40px;
+}
+
+.section-link {
+    color: $accent-black;
+    position: relative;
+    margin-right: 20px;
+
+    &:active, &#active {
+        color: $n3-green;
+        &::after {
+            content: '';
+            width: 90%;
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            border: 1.5px solid $n3-green;
+
+        }
+
+    }
+}
+
+.input-group {
+    > * {
+        margin-bottom: 40px;
+    }
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.description {
+    p:first-of-type {
+        margin-bottom: 10px;
+    }
+}

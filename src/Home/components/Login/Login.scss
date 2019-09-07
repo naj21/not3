@@ -1,0 +1,16 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    & > * {
+        justify-content: center;
+    }
+}
+
+.login-section {
+    padding: 50px;
+    text-align: center;
+    form {
+        max-width: 350px;
+        margin: 40px auto;
+    }
+}
