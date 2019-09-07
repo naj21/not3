@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import styled, { css } from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FiButtonText = styled.span`
 	margin-top: 2px;
@@ -59,10 +58,7 @@ const Button = props => {
 					(<FiButtonText mx={icon && 10}>{text}</FiButtonText>)
 				}
 				{isLoading && (
-					<FontAwesomeIcon
-						icon="circle-notch"
-						spin
-					/>
+					<i className="fa fa-circle-o" />
 				)}
 			</FiButton>
 		</Fragment>
