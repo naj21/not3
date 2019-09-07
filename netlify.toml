@@ -1,4 +1,6 @@
 [build]
+  base = "public/"
+  publish = "public/build/"
 
 [[redirects]]
   from = "/*"
