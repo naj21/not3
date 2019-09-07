@@ -11,7 +11,7 @@ const Home = (props) => {
     return (
         <div className={`home ${mode && ''}`}>
             <header>
-                <img src={logo} alt='logo' />
+                <img src={logo} alt='logo' className="App-logo"/>
                 <div>
                     <Button
                         text='Log in'

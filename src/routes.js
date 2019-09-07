@@ -7,6 +7,7 @@ import Home from './Home';
 import Signup from './Home/components/Signup';
 import Login from './Home/components/Login';
 import WorkSpace from './Home/components/WorkSpace';
+import Profile from './Home/components/Profile';
 
 const AppRoutes = [
     <Route
@@ -21,6 +22,10 @@ const AppRoutes = [
     <Route
         path='/login'
         component={Login}
+    />,
+    <Route
+        path='/profile'
+        component={Profile}
     />,
     <Route
         exact

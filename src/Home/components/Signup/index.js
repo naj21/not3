@@ -13,11 +13,11 @@ import Button from '../../../shared/Button';
 //styles
 import './Signup.scss';
 
-const Signup = () => {
+const Signup = (props) => {
     return (
         <div className="signup">
             <header>
-                <img src={logo} alt='logo' />
+                <img src={logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
             </header>
             <Card>
                 <p className="large-text">Sign Up</p>

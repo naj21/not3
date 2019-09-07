@@ -47,7 +47,6 @@ const FiButton = styled.button`
 
 const Button = props => {
 	const { text, isLoading, icon } = props;
-	console.log(icon)
 	return (
 		<Fragment>
 			<FiButton {...props}>

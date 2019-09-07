@@ -14,9 +14,7 @@ body {
 
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .large-text {
@@ -33,6 +31,10 @@ body {
 
 .small-text {
   font-size: 12px;
+}
+
+.light {
+  color: $secondary-color;
 }
 
 .profile-picture {
