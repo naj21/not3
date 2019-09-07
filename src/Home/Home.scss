@@ -23,6 +23,7 @@
         text-align: left;
         & :first-child {
             max-width: 500px;
+            margin-bottom: 5px;
         }
         & :nth-child(2) {
             max-width: 350px;
