@@ -28,7 +28,6 @@ const AppRoutes = [
         component={Profile}
     />,
     <Route
-        exact
         path='/workspace'
         component={WorkSpace}
     />,

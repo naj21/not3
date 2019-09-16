@@ -2,7 +2,10 @@
 
 .addnote-modal.visible {
     display: block;
-    position: relative;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 40px 80px;
     max-width: 480px;
     margin: 80px auto;

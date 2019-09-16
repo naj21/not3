@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 
  //components
@@ -7,6 +7,7 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
  import Office from './components/Office';
  import Note from './components/Note';
  import AddNote from './components/AddNote';
+ import AddNoteModal from './components/AddNote/components/AddNoteModal';
 
  //images
  import logo from '../../../global/images/logo-w.svg';
@@ -21,7 +22,25 @@ import Nav from './components/Nav';
     const { match } = props;
     const { backdrop, toggleBackdrop } = useContext(ThemeContext);
     const [newNote, setNewNote] = useState(true);
-    const [visible, setVisible] = useState(false);
+    const [navVisible, setNavVisible] = useState(false);
+
+    const  [ visible, setVisible ] = useState(false);
+    const setNavVisibility = () => {
+        setNavVisible(async () => {
+            await toggleBackdrop();
+            return !navVisible
+        });
+    }
+
+    const paths = [
+        '/workspace/office',
+        '/workspace/note',
+      ];
+      const redirect = !paths.includes(window.location.pathname);
+    
+      if (redirect) {
+        return <Redirect to={`${match.url}/office`} />;
+      }
 
     const setVisibiltiy = () => {
         setVisible(async () => {
@@ -37,7 +56,7 @@ import Nav from './components/Nav';
                     <div className="profile-picture" id="workspace-profile"></div>
                     <span className="large-text bold" id="color-white">Kayode</span>
                     <Dropdown icon="fa fa-chevron-down" id="actions">
-                        <N3DropdownListItem role="button" onClick={()=>props.history.push('/profile/account')}>
+                        <N3DropdownListItem role="button" onClick={()=>props.history.push('/profile')}>
                             <i className="fa fa-user-circle" />
                             <span>Account</span>
                         </N3DropdownListItem>
@@ -53,8 +72,23 @@ import Nav from './components/Nav';
                 </div>
                 <hr />
                 <ul>
-                    <li>New Note <i className="fa fa-plus" /></li>
-                    <li>Office</li>
+                    <li onClick={setVisibiltiy}>
+                        {/* <NavLink
+                        to={`${match.url}/note`}
+                        activeClassName="active"
+                        > */}
+                            New Note <i className="fa fa-plus" />
+                        {/* </NavLink> */}
+                    </li>
+                    <li>
+                        <NavLink
+                            to={`${match.url}/office`}
+                            activeClassName="active"
+                            onClick={() => setNewNote(!newNote)}
+                        >
+                            Office
+                        </NavLink>
+                    </li>
                     <li>School</li>
                     <li>Personal Project</li>
                     <li>Tags</li>
@@ -62,11 +96,11 @@ import Nav from './components/Nav';
             </div>
             <header id="workspace-header">
                 <img src={logo} alt='logo' className="App-logo"/>
-                <i className="fa fa-bars" id="workspace-menu" onClick={setVisibiltiy} />
+                <i className="fa fa-bars" id="workspace-menu" onClick={setNavVisibility} />
             </header>
             <div className="main">
                 <>
-                    <Nav visible={visible && backdrop}/>
+                    <Nav visible={navVisible && backdrop}/>
                     { newNote ?
                         <AddNote />
                     :<>
@@ -76,17 +110,16 @@ import Nav from './components/Nav';
                             to={`${match.url}/office`}
                         />
                         <Route
-                            exact
-                            path={`${match.url}`}
+                            path={`${match.url}/office`}
                             component={Office}
                         />
                         <Route
-                            exact
                             path={`${match.url}/note`}
                             component={Note}
                         />
                     </>
                     }
+                    <AddNoteModal visible={visible && backdrop} />
                 </>
              </div>
          </div>

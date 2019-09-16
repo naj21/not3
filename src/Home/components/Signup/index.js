@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //images
 import logo from '../../../global/images/logo.svg';
@@ -37,7 +38,7 @@ const Signup = (props) => {
                         <p>
                             Already have an account?
                             {' '}
-                            <a href='#'>Log In</a>
+                            <Link to='/login'>Log In</Link>
                         </p>
                     </form>
                     <div className="signup-img" />

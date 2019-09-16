@@ -2,6 +2,7 @@
 @import 'src/global/styles/query.scss';
 
 .profile-card {
+    position: relative;
     padding: 60px 40px 30px;
     & > form {
         button {
@@ -17,19 +18,20 @@
     @include sm-tablet {
         width: 100%;
     }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border: 0.7px solid rgba(189, 189, 189, 0.5);
+        top: -28px;
+        left: 0;
+    }
 }
 
 .sub-links {
     position: relative;
     margin: 30px 0;
-    &::after {
-        content: '';
-        position: absolute;
-        width: 72vw;
-        border: 0.7px solid rgba(189, 189, 189, 0.5);
-        bottom: -3px;
-        left: 0;
-    }
 }
 
 .section-link {
@@ -37,11 +39,11 @@
     position: relative;
     margin-right: 20px;
     opacity: 0.7;
-    &:active, &#active {
+    &.active {
         color: $n3-green;
         &::after {
             content: '';
-            width: 90%;
+            width: 95%;
             position: absolute;
             left: 0;
             bottom: -3px;

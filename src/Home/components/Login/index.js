@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../global/images/logo.svg';
 
 //components
@@ -29,7 +30,7 @@ const Login = (props) => {
                     <p>
                         Don't have an account?
                         {' '}
-                        <a href='#'>Sign Up</a>
+                        <Link to="/signup">Sign Up</Link>
                     </p>
                 </form>
             </div>
