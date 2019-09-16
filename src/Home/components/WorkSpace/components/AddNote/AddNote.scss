@@ -1,0 +1,40 @@
+@import 'src/global/styles/query.scss';
+@import 'src/global/styles/theme.scss';
+
+
+.addnote-header {
+    justify-content: flex-end;
+}
+
+.profile-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #workspace-profile {
+        width: 100px;
+        height: 100px;
+    }
+
+    Button {
+        margin: 40px 0 30px;
+        border-radius: 30px;
+        padding: 0 40px;
+    }
+
+}
+
+.add-note {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    grid-row-gap: 20px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    color: $n3-black;
+    img {
+        cursor: pointer;
+    }
+}

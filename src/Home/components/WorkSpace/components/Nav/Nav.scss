@@ -1,0 +1,53 @@
+@import '../../../../../global/styles/theme.scss';
+@import '../../../../../global/styles/query.scss';
+
+.nav {
+    .mode {
+        margin-left: 60px;
+        @include mobile {
+            margin-left: 30px; 
+        }
+    }
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        position: relative;
+        color: $n3-black;
+        border-bottom: 1px solid rgba(189, 189, 189, 0.5);
+        padding-left: 50px;
+        cursor: pointer;
+        @include mobile {
+            padding-left: 30px;
+        }
+        &:first-of-type {
+            border-top: 1px solid rgba(189, 189, 189, 0.5);
+        }
+        &::after {
+            content: '\0203A';
+            position: absolute;
+            right: 30px;
+            font-size: 48px;
+            font-weight: 400;
+            color: $accent-black;
+            top: -10px;
+        }
+
+        i {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        img {
+            margin-right: 6px;
+        }
+
+        &.logout {
+            color: red;
+        }
+    }
+    @include tablet-desktop {
+        display: none;
+    }
+}

@@ -3,7 +3,6 @@ import React from 'react';
 //images
 import logo from '../../../global/images/logo.svg';
 import profile from '../../../global/images/profile.svg';
-import signup from '../../../global/images/signup.svg';
 
 //components
 import Card from '../../../shared/Card';
@@ -20,8 +19,8 @@ const Signup = (props) => {
                 <img src={logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
             </header>
             <Card>
-                <p className="large-text">Sign Up</p>
-                <p className="">Sign Up for an account so you can write your notes</p>
+                <p className="medium-text bold">Sign Up</p>
+                <p>Sign Up for an account so you can write your notes</p>
                 <div className="profile-picture">
                     <img src={profile} alt='profile' />
                 </div>
@@ -41,7 +40,7 @@ const Signup = (props) => {
                             <a href='#'>Log In</a>
                         </p>
                     </form>
-                    <img src={signup} alt='signup' />
+                    <div className="signup-img" />
                 </div>
             </Card>
         </div>

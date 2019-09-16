@@ -2,14 +2,26 @@
 @import './global/styles/base.scss';
 @import './global/styles/layout.scss';
 
+// html[data-theme='dark'] {
+//   $primary-color: $n3-white;
+//   $secondary-color: $accent-white;
+//   $background: #26332D !global;
+// }
 
-body {
-  background: $background;
-}
+// @if $dark-theme {
+//   $primary-color: $n3-white;
+//   $secondary-color: $accent-white;
+//   $background: #26332D;
+// }
 
 .App {
+  position: relative;
   box-sizing: border-box;
   color: $secondary-color;
+  background: white;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
@@ -18,20 +30,24 @@ body {
 }
 
 .large-text {
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 26px;
   color: $primary-color;
 }
 
+.bold {
+  font-family: 'Airbnb Cereal App Book';
+  font-weight: 900;
+}
 
 .medium-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .small-text {
-  font-size: 12px;
+  font-size: 14px;
 }
+
 
 .light {
   color: $secondary-color;
@@ -49,11 +65,11 @@ body {
 
 .backdrop {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: #E5E5E5;
-  display: grid;
-  place-items: center;
+  background: #00000030;
+  z-index: 10;
 }
 
 @keyframes App-logo-spin {

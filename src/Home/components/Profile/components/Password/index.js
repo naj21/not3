@@ -1,15 +1,18 @@
 import React from 'react';
 
 //components
-import Input from '../../../../shared/Input';
-import Button from '../../../../shared/Button';
+import Input from '../../../../../shared/Input';
+import Button from '../../../../../shared/Button';
+
+//styles
+import './Password.scss';
 
 const Password = () => {
     return (
         <form>
-            <div className="form-inputs">
+            <div className="password-inputs">
                 <div className="description">
-                    <p className="large-text">Password</p>
+                    <p className="medium-text">Password</p>
                     <p>Provide your current password and choose a new one.</p>
                 </div>
                 <div className="input-group">

@@ -1,3 +1,5 @@
+@import 'src/global/styles/theme.scss';
+
 .login {
     display: flex;
     flex-direction: column;
@@ -9,6 +11,14 @@
 .login-section {
     padding: 50px;
     text-align: center;
+    p:first-of-type {
+        margin-bottom: 15px;
+    }
+    & > p:nth-of-type(2) {
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: $accent-black;
+    }
     form {
         max-width: 350px;
         margin: 40px auto;

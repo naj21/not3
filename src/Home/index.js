@@ -1,50 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+
+//images
 import logo from '../global/images/logo.svg';
-import notes from '../global/images/notes.svg';
+import lens from '../global/images/lens.png';
+
+//components
 import Button from '../shared/Button';
 
 //styles
 import './Home.scss'
+import SideNav from '../shared/SideNav';
 
 const Home = (props) => {
+    const { backdrop, toggleBackdrop } = useContext(ThemeContext);
     const [mode, setMode] = useState(true);
+    const [visible, setVisible] = useState(backdrop);
+
+    const setVisibiltiy = () => {
+        setVisible(async () => {
+            await toggleBackdrop();
+            return !visible
+        });
+    }
     return (
-        <div className={`home ${mode && ''}`}>
-            <header>
-                <img src={logo} alt='logo' className="App-logo"/>
-                <div>
-                    <Button
-                        text='Log in'
-                        onClick={()=>props.history.push(`/login`)}
-                    />
-                    <button
-                        className="mode"
-                        onClick={()=>{setMode(!mode)}}
-                    ><i className="fa fa-moon-o" /></button>
-                </div>
-            </header>
-            <div className="home-content">
-                <div className="hero">
-                    <div className="hero-text">
-                        <p className="large-text">Relax and write something beautiful</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div className="hero-button">
+        <>
+            <SideNav visible={visible && backdrop} className="home-nav">
+                <button
+                    className="mode"
+                    onClick={()=>{setMode(!mode)}}
+                ><i className="fa fa-moon-o" /></button>
+                <ul className="medium-text bold">
+                    <li onClick={()=>props.history.push(`/signup`)}>Sign Up</li>
+                    <li onClick={()=>props.history.push(`/login`)}>Sign In</li>
+                    <li onClick={()=>props.history.push(`/workspace`)}>New Note</li>
+                </ul>
+            </SideNav>
+            <div className={`home ${mode && ''}`}>
+                <header>
+                    <img src={logo} alt='logo' className="App-logo"/>
+                    <div className="nav-actions">
                         <Button
-                            text='Add Note'
-                            onClick={()=>props.history.push(`/workspace`)}
+                            text='Log in'
+                            onClick={()=>props.history.push(`/login`)}
                         />
-                        <Button
-                            text='Sign up'
-                            onClick={()=>props.history.push(`/signup`)}
-                        />
+                        <button
+                            className="mode"
+                            onClick={()=>{setMode(!mode)}}
+                        ><i className="fa fa-moon-o" /></button>
                     </div>
-                </div>
-                <div className="hero-image">
-                    <img src={notes} alt='notes' />
+                    <i className="fa fa-bars" id="menu" onClick={setVisibiltiy} />
+                </header>
+                <div className="home-content">
+                    <div className="hero">
+                        <div className="hero-text">
+                            <p className="large-text bold">Relax and write something beautiful</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div className="hero-button">
+                            <Button
+                                text='Add Note'
+                                onClick={()=>props.history.push(`/workspace`)}
+                            />
+                            <Button
+                                text='Sign up'
+                                onClick={()=>props.history.push(`/signup`)}
+                            />
+                        </div>
+                    </div>
+                    <div className="hero-image" />
+    
+                    <img src={lens} alt="bg" className="bg" />
+                    <img src={lens} alt="bg" className="bg" />
+                    <img src={lens} alt="bg" className="bg" />
+                    <img src={lens} alt="bg" className="bg" />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

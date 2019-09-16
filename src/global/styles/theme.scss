@@ -9,8 +9,3 @@ $n3-green: #0C9854;
 $background: #fff;
 
 
-@if $dark-theme {
-  $primary-color: $n3-white;
-  $secondary-color: $accent-white;
-  $background: #26332D;
-}

@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, {useContext} from 'react';
 import { Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import {ThemeContext} from './contexts/ThemeContext';
 import Theme from './global/theme';
 import AppRoutes from './routes';
 
 import './App.scss';
-import Profile from './Home/components/Profile';
 
 function App() {
+  const { backdrop, toggleBackdrop } = useContext(ThemeContext);
   return (
-      <div className="App">
-        <ThemeProvider theme={Theme}>
-          <Switch>
-            {AppRoutes}
-          </Switch>
-        {/* <div className="backdrop">
-          <Profile />
-        </div> */}
-        </ThemeProvider>
+      <div className="App" theme='dark'>
+          <ThemeProvider theme={Theme}>
+            <Switch>
+              {AppRoutes}
+            </Switch>
+          </ThemeProvider>
+          <div className={backdrop && "backdrop"} onClick={toggleBackdrop} />
       </div>
   );
 }

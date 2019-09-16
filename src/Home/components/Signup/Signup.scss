@@ -1,23 +1,50 @@
+@import 'src/global/styles/query.scss';
+
 .signup {
     & > * {
         justify-content: center;
         & > p {
             margin: 5px 0;
             text-align: left;
+            @include mobile {
+                text-align: center;
+            }
         }
     }
     & > :nth-child(2) {
         margin: 50px 130px;
-        padding: 30px 60px;;
+        padding: 30px 60px;
+        @include tablet {
+            margin: 50px 80px;
+        }
+        @include mobile {
+            margin: 50px 30px;
+            padding: 30px 30px;
+            place-items: center;
+        }
     }
 
     .profile-picture {
-        margin: 20px 0;
+        margin: 20px 0 30px;
     }
 }
 
 .form-svg {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: 100px;
+    grid-template-columns: minmax(250px, 2fr) minmax(250px, 300px);
+    grid-column-gap: 80px;
+    width: 100%;
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.signup-img {
+    height: 300px;
+    background-image: url('../../../global/images/signup.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include tablet {
+        display: none; 
+    }
 }

@@ -1,3 +1,5 @@
+@import './query.scss';
+
 *, body {
     box-sizing: border-box;
     margin: 0;
@@ -19,7 +21,7 @@ a {
     }
   
     p {
-        text-align: center;
+        // text-align: center;
         justify-content: center;
         margin: 5px 0;
         font-size: 14px;
@@ -27,12 +29,17 @@ a {
   }
 
   header {
+    position: relative;
     height: 85px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     font-size: calc(10px + 2vmin);
     padding: 0 100px;
+    z-index: 10;
+    @include mobile {
+      padding: 0 30px;
+    }
     span {
       font-size: 14px;
       display: inline;
@@ -53,4 +60,8 @@ button {
   outline: none;
   cursor: pointer;
   border: none;
+}
+
+ul {
+  list-style: none;
 }

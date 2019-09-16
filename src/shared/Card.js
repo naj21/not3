@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const N3Card = styled.div`
+	display: grid;
 	background: white;
 	box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
 	color: ${props => props.theme.color.grey[1]};

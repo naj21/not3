@@ -1,6 +1,20 @@
+@font-face {
+  font-family: 'Airbnb Cereal App Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Light'), url('./global/fonts/AirbnbCerealLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Airbnb Cereal App Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Book'), url('./global/fonts/AirbnbCerealBook.woff') format('woff');
+}
+
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Airbnb Cereal App Light", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

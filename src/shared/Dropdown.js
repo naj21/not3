@@ -59,7 +59,7 @@ export const N3DropdownListItem = styled.a`
 	&:hover {
 		background: ${props => props.theme.color.grey[0]};
     }
-    i {
+    i, img {
         margin-right: 15px;
     }
 `;
@@ -89,9 +89,12 @@ const Dropdown = props => {
 	};
 
 	return ( 
-		<div>
+		<>
 			{!divided
-			? (<N3Dropdown ref={node}>
+			? (<N3Dropdown
+					{...props}
+					ref={node}
+				>
 				<N3DropdownButton
 					{...props}
 					isActive={isVisible}
@@ -101,7 +104,10 @@ const Dropdown = props => {
 				/>
 				{isVisible && <N3DropdownList>{children}</N3DropdownList>}
 			</N3Dropdown>)
-			: (<N3Dropdown ref={node}>
+			: (<N3Dropdown
+					{...props}
+					ref={node}
+				>
 				<N3Span>{name}</N3Span>
 				<N3DropdownButton
 					{...props}
@@ -113,7 +119,7 @@ const Dropdown = props => {
 				{isVisible && <N3DropdownList>{children}</N3DropdownList>}
 			</N3Dropdown>)
 			}
-		</div>
+		</>
 	);
 };
 

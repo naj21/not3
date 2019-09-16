@@ -15,8 +15,8 @@ const Login = (props) => {
                 <img src={logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
             </header>
             <div className="login-section">
-                <p className="large-text light">Welcome back!</p>
-                <p className="large-text">Please Login</p>
+                <p className="medium-text bold">Welcome back!</p>
+                <p className="large-text">Please login</p>
                 <form>
                     <Input placeholder='Email Address' />
                     <Input placeholder='password' />

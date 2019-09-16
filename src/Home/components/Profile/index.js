@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 //components
 import Card from '../../../shared/Card';
-import Account from './components/Account';
-import Password from './components/Password';
+import Account from './components/Account/index';
+import Password from './components/Password/index';
 
 //styles
 import './Profile.scss';
@@ -14,10 +15,10 @@ const Profile = (props) => {
     console.log(path)
     return (
         <div className="underlay">
-            <p className="large-text">Profile</p>
+            <p className="large-text bold">Profile</p>
             <div className="sub-links">
-                <a href='/profile/account' className="section-link" id={path === 'account' && 'active'}>Account</a>
-                <a href='/profile/password' className="section-link" id={path === 'password' && 'active'}>Change Password</a>
+                <a href='/profile/account' className="section-link bold" id={path === 'account' && 'active'}>Account</a>
+                <a href='/profile/password' className="section-link bold" id={path === 'password' && 'active'}>Change Password</a>
             </div>
             <Card className="profile-card">
                 <Switch>
