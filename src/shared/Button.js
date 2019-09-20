@@ -19,7 +19,7 @@ const FiButton = styled.button`
 	height: 40px;
 	transition: all 200ms ease-out;
 	i{
-		color: ${props => props.theme.color.grey[1]};
+		color: var(--secondary-color);
 		font-size: 14px;
 	}
 	&:hover{

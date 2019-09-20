@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
 //images
 import logo from '../../../global/images/logo.svg';
+import whiteLogo from '../../../global/images/logo-w.svg';
 import profile from '../../../global/images/profile.svg';
 
 //components
@@ -14,10 +16,12 @@ import Button from '../../../shared/Button';
 import './Signup.scss';
 
 const Signup = (props) => {
+    const { isDark } = useContext(ThemeContext);
+    
     return (
         <div className="signup">
             <header>
-                <img src={logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
+                <img src={isDark ? whiteLogo : logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
             </header>
             <Card>
                 <p className="medium-text bold">Sign Up</p>

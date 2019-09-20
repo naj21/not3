@@ -3,6 +3,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 //images
 import logo from '../global/images/logo.svg';
+import whiteLogo from '../global/images/logo-w.svg';
 import lens from '../global/images/lens.png';
 
 //components
@@ -13,8 +14,7 @@ import './Home.scss'
 import SideNav from '../shared/SideNav';
 
 const Home = (props) => {
-    const { backdrop, toggleBackdrop } = useContext(ThemeContext);
-    const [mode, setMode] = useState(true);
+    const { backdrop, toggleBackdrop, toggleMode, isDark } = useContext(ThemeContext);
     const [visible, setVisible] = useState(backdrop);
 
     const setVisibiltiy = () => {
@@ -23,22 +23,23 @@ const Home = (props) => {
             return !visible
         });
     }
+
     return (
         <>
             <SideNav visible={visible && backdrop} className="home-nav">
                 <button
                     className="mode"
-                    onClick={()=>{setMode(!mode)}}
+                    onClick={toggleMode}
                 ><i className="fa fa-moon-o" /></button>
                 <ul className="medium-text bold">
                     <li onClick={()=>props.history.push(`/signup`)}>Sign Up</li>
                     <li onClick={()=>props.history.push(`/login`)}>Sign In</li>
-                    <li onClick={()=>props.history.push(`/workspace`)}>New Note</li>
+                    <li onClick={()=>props.history.push(`/workspace/note`)}>New Note</li>
                 </ul>
             </SideNav>
-            <div className={`home ${mode && ''}`}>
+            <div className='home'>
                 <header>
-                    <img src={logo} alt='logo' className="App-logo"/>
+                    <img src={isDark ? whiteLogo : logo} alt='logo' className="App-logo"/>
                     <div className="nav-actions">
                         <Button
                             text='Log in'
@@ -46,7 +47,7 @@ const Home = (props) => {
                         />
                         <button
                             className="mode"
-                            onClick={()=>{setMode(!mode)}}
+                            onClick={toggleMode}
                         ><i className="fa fa-moon-o" /></button>
                     </div>
                     <i className="fa fa-bars" id="menu" onClick={setVisibiltiy} />
@@ -60,7 +61,7 @@ const Home = (props) => {
                         <div className="hero-button">
                             <Button
                                 text='Add Note'
-                                onClick={()=>props.history.push(`/workspace`)}
+                                onClick={()=>props.history.push(`/workspace/note`)}
                             />
                             <Button
                                 text='Sign up'

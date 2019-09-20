@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../../contexts/ThemeContext';
+
 import logo from '../../../global/images/logo.svg';
+import whiteLogo from '../../../global/images/logo-w.svg';
 
 //components
 import Input from '../../../shared/Input';
@@ -10,10 +13,12 @@ import Button from '../../../shared/Button';
 import './Login.scss';
 
 const Login = (props) => {
+    const { isDark } = useContext(ThemeContext);
+
     return (
         <div className="login">
             <header>
-                <img src={logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
+                <img src={isDark ? whiteLogo : logo} alt='logo'  className="App-logo" onClick={()=>props.history.push('/')} />
             </header>
             <div className="login-section">
                 <p className="medium-text bold">Welcome back!</p>
@@ -25,7 +30,7 @@ const Login = (props) => {
                     <p>
                         Forgot your password?
                         {' '}
-                        <a href='#'>Reset it</a>
+                        <Link>Reset it</Link>
                     </p>
                     <p>
                         Don't have an account?

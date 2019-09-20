@@ -20,7 +20,7 @@ const N3DropdownButton = styled(Button)`
 const N3Span = styled.span`
 	padding-left: 14px;
     padding-right: 14px;
-    color: ${props => props.theme.color.grey[1]};
+    color: var(--secondary-color);
     font-size: 14px;
     text-transform: capitalize;
     line-height: 35px;
@@ -50,7 +50,7 @@ const N3DropdownList = styled(Card)`
 export const N3DropdownListItem = styled.a`
 	display: inline-block;
 	padding: 5px 30px;
-	color: ${props => props.theme.color.grey[1]};
+	color: var(--primary-color);
     font-size: 16px;
     line-height: 20px;
 	text-decoration: none;

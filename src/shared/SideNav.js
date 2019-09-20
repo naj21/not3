@@ -8,7 +8,7 @@ const N3SideNav = styled.div`
     height: 100vh;
     display: ${props => props.visible ? 'block' : 'none'};
     padding-top: 30px;
-    background: white;
+    background: var(--background);
     z-index: 100;
     li {
         padding: 15px;

@@ -1,12 +1,4 @@
-@import './global/styles/theme.scss';
-@import './global/styles/base.scss';
-@import './global/styles/layout.scss';
-
-// html[data-theme='dark'] {
-//   $primary-color: $n3-white;
-//   $secondary-color: $accent-white;
-//   $background: #26332D !global;
-// }
+ 
 
 // @if $dark-theme {
 //   $primary-color: $n3-white;
@@ -17,8 +9,8 @@
 .App {
   position: relative;
   box-sizing: border-box;
-  color: $secondary-color;
-  background: white;
+  color: var(--secondary-color);
+  background: var(--background);
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -31,7 +23,6 @@
 
 .large-text {
   font-size: 26px;
-  color: $primary-color;
 }
 
 .bold {
@@ -50,7 +41,7 @@
 
 
 .light {
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 .profile-picture {
@@ -64,7 +55,7 @@
 }
 
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 100%;

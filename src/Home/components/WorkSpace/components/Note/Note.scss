@@ -38,7 +38,7 @@
     grid-row-gap: 15px;
     padding: 10px;
     button, span {
-        color: $n3-black;
+        color: var(--secondary-color);
         height: 25px;
         line-height: 23px;
         padding-left: 5px;
@@ -53,4 +53,9 @@
     @include mobile {
         height: 350px;
     }
+}
+
+.title {
+    outline-color: $n3-green;
+    color: var(--primary-color);
 }

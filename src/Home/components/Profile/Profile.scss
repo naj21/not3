@@ -19,7 +19,7 @@
         width: 100%;
     }
 
-    &::after {
+    &::before {
         content: '';
         position: absolute;
         width: 100%;
@@ -35,20 +35,19 @@
 }
 
 .section-link {
-    color: $accent-black;
+    color: var(--secondary-color);
     position: relative;
     margin-right: 20px;
     opacity: 0.7;
     &.active {
-        color: $n3-green;
+        color: var(--n3-green);
         &::after {
             content: '';
             width: 95%;
             position: absolute;
             left: 0;
             bottom: -3px;
-            border: 1.5px solid $n3-green;
-            z-index: 10;
+            border: 1.5px solid var(--n3-green);
         }
 
     }
@@ -69,7 +68,7 @@
 .description {
     p:first-of-type {
         margin-bottom: 10px;
-        color: $primary-color;
+        color: var(--primary-color);
     }
 }
 
@@ -86,4 +85,12 @@
     @include mobile {
         padding: 30px 10%;
     }
+
+    > p {
+        color: var(--primary-color);
+    }
   }
+
+html[data-theme='dark'] .underlay {
+    background: var(--background);
+}

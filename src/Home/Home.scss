@@ -1,9 +1,4 @@
-@import 'src/global/styles/theme.scss';
 @import 'src/global/styles/query.scss';
-
-.dark {
-    $dark-theme: true !global;
-  }
 
 .home {
     width: 100%;
@@ -36,10 +31,14 @@
     & :first-child {
         max-width: 100%;
         margin-bottom: 5px;
+        color: var(--primary-color);
     }
     & :nth-child(2) {
         max-width: 350px;
         font-size: 14px;
+    }
+    @include mobile {
+        text-align: center;
     }
 }
 
@@ -53,6 +52,9 @@
     & > :first-child {
         margin-right: 40px;
     }
+    @include mobile {
+        justify-self: center;
+    }
 }
 
 .hero-image {
@@ -61,7 +63,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: center;
-    @include tablet {
+    @include sm-tablet {
         display: none; 
     }
 }
@@ -71,7 +73,7 @@
     i {
         font-size: 28px;
         transform: rotateZ(230deg);
-        color: $n3-green;
+        color: var(--n3-green);
     }
 }
 
@@ -88,13 +90,13 @@
     }
     li {
         cursor: pointer;
-        color: $n3-black;
+        color: var(--primary-color);
     }
 }
 
 #menu {
     display: none;
-    color: $n3-green;
+    color: var(--n3-green);
     font-size: 32px;
     cursor: pointer;
     @include mobile {

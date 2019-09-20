@@ -11,16 +11,20 @@
 .login-section {
     padding: 50px;
     text-align: center;
+    color: var(--secondary-color);
     p:first-of-type {
         margin-bottom: 15px;
     }
     & > p:nth-of-type(2) {
         font-weight: 600;
         letter-spacing: 1px;
-        color: $accent-black;
     }
     form {
         max-width: 350px;
         margin: 40px auto;
     }
+}
+
+html[data-theme='dark'] .login-section {
+    color: var(--primary-color);
 }

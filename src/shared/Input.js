@@ -5,8 +5,9 @@ const N3Input = styled.input`
     width: 100%;
     outline: none;
     border-radius: 4px;
+    background: var(--background);
     border: 1px solid ${props => props.theme.color.grey[0]};
-    color: ${props => props.theme.color.grey[1]};
+    color: var(--secondary-color);
     font-size: 14px;
     line-height: 35px;
     padding: 0 10px;

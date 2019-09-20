@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 
 //components
 import Card from '../../../shared/Card';

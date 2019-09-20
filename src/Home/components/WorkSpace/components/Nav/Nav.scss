@@ -1,4 +1,3 @@
-@import '../../../../../global/styles/theme.scss';
 @import '../../../../../global/styles/query.scss';
 
 .nav {
@@ -14,7 +13,7 @@
 
     li {
         position: relative;
-        color: $n3-black;
+        color: var(--primary-color);
         border-bottom: 1px solid rgba(189, 189, 189, 0.5);
         padding-left: 50px;
         cursor: pointer;
@@ -30,7 +29,7 @@
             right: 30px;
             font-size: 48px;
             font-weight: 400;
-            color: $accent-black;
+            color: var(--secondary-color);
             top: -10px;
         }
 
@@ -43,11 +42,17 @@
             margin-right: 6px;
         }
 
-        &.logout {
-            color: red;
-        }
     }
     @include tablet-desktop {
         display: none;
+    }
+}
+
+.logout {
+    color: red;
+}
+.profile-group {
+    > span {
+        color: var(--primary-color);
     }
 }

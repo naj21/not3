@@ -1,4 +1,3 @@
-@import 'src/global/styles/theme.scss';
 @import 'src/global/styles/query.scss';
 
 .workspace {
@@ -23,12 +22,12 @@
     }
 }
 
-.sidenav {
+aside {
     position: sticky;
     top: 0;
     left: 0;
     height: 100vh;
-    background: #0C9854;
+    background: var(--n3-green);
     padding: 40px 0;
     color: #fff;
     z-index: 10;
@@ -49,6 +48,7 @@
         text-align: left;
         padding: 5px 40px;
         margin-bottom: 5px;
+        font-weight: 900;
         cursor: pointer;
         &:hover {
             background: #00000020;
@@ -61,12 +61,10 @@
                 border: 1px solid white;
             }
         }
-        &:first-of-type, &:last-of-type {
-            font-weight: 900;
-            i {
-                font-size: 14px;
-                margin-left: 12px;
-            }
+
+        i {
+            font-size: 14px;
+            margin-left: 12px;
         }
 
         a {
@@ -81,6 +79,18 @@
         & > i {
             color: white !important;
         }
+        > :nth-child(2) {
+            right: 0;
+            > * {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+html[data-theme='dark'] #actions  > :nth-child(2){
+    > * {
+        color: var(--primary-color);
     }
 }
 
@@ -139,7 +149,7 @@
     position: sticky;
     top: 0;
     display: none;
-    background: $n3-green;
+    background: var(--n3-green);
     place-items: center;
     height: 60px;
     z-index: 100;

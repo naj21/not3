@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { Route, NavLink, Link, Redirect } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 import { ThemeContext } from '../../../contexts/ThemeContext';
+import { NoteContext } from '../../../contexts/NoteContext';
 
  //components
  import Dropdown, { N3DropdownListItem } from '../../../shared/Dropdown';
@@ -11,17 +12,16 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 
  //images
  import logo from '../../../global/images/logo-w.svg';
- import exit from '../../../global/images/exit.svg';
+ import exit from '../../../global/images/exit-r.svg';
 
  //styles
  import './WorkSpace.scss';
 import Nav from './components/Nav';
 
  const WorkSpace = (props) => {
-    console.log(props)
     const { match } = props;
-    const { backdrop, toggleBackdrop } = useContext(ThemeContext);
-    const [newNote, setNewNote] = useState(true);
+    const { backdrop, toggleBackdrop, toggleMode } = useContext(ThemeContext);
+    const {noteState: {notes}, dispatch} = useContext(NoteContext);
     const [navVisible, setNavVisible] = useState(false);
 
     const  [ visible, setVisible ] = useState(false);
@@ -51,7 +51,7 @@ import Nav from './components/Nav';
     
     return (
         <div className="workspace">
-            <div className="sidenav">
+            <aside>
                 <div className="profile">
                     <div className="profile-picture" id="workspace-profile"></div>
                     <span className="large-text bold" id="color-white">Kayode</span>
@@ -60,40 +60,43 @@ import Nav from './components/Nav';
                             <i className="fa fa-user-circle" />
                             <span>Account</span>
                         </N3DropdownListItem>
-                        <N3DropdownListItem href="#">
+                        <N3DropdownListItem href="#" onClick={toggleMode}>
                             <i className="fa fa-moon-o" />
                             <span>Dark mode</span>
                         </N3DropdownListItem>
                         <N3DropdownListItem href="#">
                             <img src={exit} alt='log out' />
-                            <span>Log out</span>
+                            <span className="logout">Log out</span>
                         </N3DropdownListItem>
                     </Dropdown>
                 </div>
                 <hr />
                 <ul>
-                    <li onClick={setVisibiltiy}>
-                        {/* <NavLink
+                    <li>
+                        <NavLink
                         to={`${match.url}/note`}
                         activeClassName="active"
-                        > */}
+                        >
                             New Note <i className="fa fa-plus" />
-                        {/* </NavLink> */}
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                        activeClassName="active"
+                        >
+                            Notebooks <i className="fa fa-book" />
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to={`${match.url}/office`}
                             activeClassName="active"
-                            onClick={() => setNewNote(!newNote)}
                         >
-                            Office
+                            All Notes <i className="fa fa-sticky-note-o" />
                         </NavLink>
                     </li>
-                    <li>School</li>
-                    <li>Personal Project</li>
-                    <li>Tags</li>
                 </ul>
-            </div>
+            </aside>
             <header id="workspace-header">
                 <img src={logo} alt='logo' className="App-logo"/>
                 <i className="fa fa-bars" id="workspace-menu" onClick={setNavVisibility} />
@@ -101,9 +104,7 @@ import Nav from './components/Nav';
             <div className="main">
                 <>
                     <Nav visible={navVisible && backdrop}/>
-                    { newNote ?
-                        <AddNote />
-                    :<>
+                    <>
                         <Route
                             exact
                             from={match.url}
@@ -118,8 +119,7 @@ import Nav from './components/Nav';
                             component={Note}
                         />
                     </>
-                    }
-                    <AddNoteModal visible={visible && backdrop} />
+                    {/* <AddNoteModal visible={visible && backdrop} /> */}
                 </>
              </div>
          </div>

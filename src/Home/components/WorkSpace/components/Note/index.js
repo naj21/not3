@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { NoteContext } from '../../../../../contexts/NoteContext';
 
  //components
  import Card from '../../../../../shared/Card';
@@ -9,10 +10,38 @@ import React from 'react';
 import './Note.scss';
 
 const Note = () => {
+    const { noteState: { note }, dispatch} = useContext(NoteContext);
+    const [title, setTitle] = useState('Untitled');
+
+    useEffect(() => {
+        dispatch({type: 'SET_NOTE', note: {}})
+        if (note.title) {
+            setTitle(note.title);
+        }
+    }, []);
+        
+    const editTitle = (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            setTitle(e.target.innerHTML);
+            // dispatch({type: 'EDIT_NOTE', note})
+        }
+    } 
+
+    const editNote = (e) => {
+        console.log(e.target.value)
+        // dispatch({type: 'EDIT_NOTE', note: {title, content: e.target.value}})
+    }
+
     return (
         <>
             <header>
-                <p className="large-text bold txt-left">Office</p>
+                <span
+                    className="large-text bold txt-left title"
+                    on
+                    // onInput={editTitle}
+                    onKeyDown={editTitle}
+                    contentEditable>{title}</span>
                 <Card className="formats">
                     <Dropdown divided name="airbnb cereal app" icon="fa fa-sort-down">
                         <N3DropdownListItem href="#">
@@ -34,7 +63,7 @@ const Note = () => {
                 </Card>
             </header>
             <div className="content">
-                <TextArea />
+                <TextArea onBlur={editNote} />
             </div>
         </>
     )
