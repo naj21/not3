@@ -4,7 +4,7 @@ export const ThemeContext = createContext();
 
 const ThemeContextProvider = (props) => {
     const [backdrop, setBackdrop] = useState(false);
-    const [isDark, setIsDark] = useState(JSON.parse(localStorage.isDark));
+    const [isDark, setIsDark] = useState(localStorage.isDark ? JSON.parse(localStorage.isDark) : false);
 
     useEffect(() => {
         localStorage.setItem('isDark', isDark);
